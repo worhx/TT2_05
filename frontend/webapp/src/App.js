@@ -13,6 +13,7 @@ import Logo from "./dbs_logo.svg";
 import Navbar from "react-bootstrap/Navbar";
 import { Container } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
+import Expense from "./Components/Expense";
 
 function App() {
     return (
@@ -46,8 +47,11 @@ function App() {
                 </div>
                 <Switch>
                     {/* <Redirect to="/login" /> */}
-                    <Route exact path="/login">
+                    <Route path="/login">
                         <Login />
+                    </Route>
+                    <Route path="/projects/expenses/">
+                        <Expense />
                     </Route>
                 </Switch>
             </div>

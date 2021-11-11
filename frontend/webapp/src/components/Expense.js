@@ -1,17 +1,32 @@
-import React from 'react'
+import { React, useState, useEffect } from "react";
+import axios from "axios";
+import Table from "react-bootstrap/Table";
 
-const Expense = ({expense}) => {
+const Expense = ({ projectId }) => {
+    const [expense, setExpense] = useState();
+
+    useEffect(() => {
+        axios
+            .get(`http://worhx.ddns.net:5000/projects/${2}/expenses`)
+            .then((res) => {
+                setExpense(res.data);
+            });
+    }, []);
+
     return (
-        <div className='expense'>
-            <h3>
-                {expense.id}
-            </h3>
-            <p>
-                {expense.projectId}
-                {expense.catId}
-            </p>
+        <div>
+            <Table striped bordered hover size="sm">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Username</th>
+                    </tr>
+                </thead>
+            </Table>
         </div>
-    )
-}
+    );
+};
 
-export default Expense
+export default Expense;
