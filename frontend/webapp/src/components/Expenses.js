@@ -17,6 +17,8 @@ const Expenses = () => {
         setExpenses([...expenses, expense])
     }
 
+    
+
     return (
         <div>
             {expenses.map((expense) => (

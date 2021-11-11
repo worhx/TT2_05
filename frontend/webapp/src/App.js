@@ -1,22 +1,27 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./Components/Login";
-import Expenses from "./Components/Expenses";
-
+import { Redirect } from "react-router";
+import Logo from "./dbs_logo.svg";
 
 function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Login />}></Route>
-        </Routes>
-        
-      </div>
-    </Router>
-
-  );
+    return (
+        <Router>
+            <div className="App">
+                <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                    <img src={Logo} alt="logo" />
+                </div>
+                <Switch>
+                    {/* <Redirect to="/login" /> */}
+                    <Route exact path="/login">
+                        <Login />
+                    </Route>
+                </Switch>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
