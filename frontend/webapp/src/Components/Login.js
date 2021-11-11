@@ -25,7 +25,7 @@ const Login = () => {
     };
 
     return (
-        <div>
+        <div style={{ marginTop: "50px" }}>
             <Form>
                 <Form.Group className="mb-3" controlId="username">
                     <Form.Label>Username</Form.Label>
