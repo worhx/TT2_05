@@ -5,7 +5,7 @@ import Modal from "./ui/Modal";
 import Backdrop from "./ui/Backdrop";
 
 const ProjectItem = ({ name, budget, description }) => {
-  const [ modalIsOpen, setModalIsOpen ] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const history = useHistory();
 
@@ -14,7 +14,7 @@ const ProjectItem = ({ name, budget, description }) => {
   }
 
   function closeModalHandler() {
-    setModalIsOpen(false)
+    setModalIsOpen(false);
   }
 
   const routeChange = () => {
@@ -34,8 +34,10 @@ const ProjectItem = ({ name, budget, description }) => {
         <button onClick={deleteHandler}>Delete</button>
       </div>
       <div>
-        { modalIsOpen && <Modal />}
-        { modalIsOpen && <Backdrop onCancel={closeModalHandler} /> }
+        {modalIsOpen && (
+          <Modal onCancel={closeModalHandler} onConfirm={closeModalHandler} />
+        )}
+        {modalIsOpen && <Backdrop onCancel={closeModalHandler} />}
       </div>
     </li>
   );

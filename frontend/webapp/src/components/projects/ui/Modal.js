@@ -1,11 +1,21 @@
 import './styles.css'
 
-const Modal = () => {
+const Modal = ({ onCancel, onConfirm }) => {
+
+  function cancelHandler() {
+    onCancel();
+  }
+
+  function confirmHandler() {
+    onConfirm();
+  }
+
   return (
+    
     <div className='modal'>
       <p>Are you sure?</p>
-      <button>Confirm</button>
-      <button>Cancel</button>
+      <button onClick={ onConfirm }>Confirm</button>
+      <button onClick={ onCancel }>Cancel</button>
     </div>
   )
 }
