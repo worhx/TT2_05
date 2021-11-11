@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize'
 import { db, db_local } from "../util/database.js";
 
-export const Expense = db_local.define("expense",
+export const Expense = db.define("expense",
     {
         id: {
             type: Sequelize.INTEGER,
