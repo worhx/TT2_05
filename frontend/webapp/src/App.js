@@ -1,19 +1,23 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./Components/Login";
+import { Redirect } from "react-router";
 
 function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Login />}></Route>
-        </Routes>
-      </div>
-    </Router>
-
-  );
+    return (
+        <Router>
+            <div className="App">
+                <Switch>
+                    {/* <Redirect to="/login" /> */}
+                    <Route exact path="/login">
+                        <Login />
+                    </Route>
+                </Switch>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
