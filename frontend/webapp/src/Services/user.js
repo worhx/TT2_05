@@ -1,7 +1,7 @@
 
 import axios from "axios";
 
-const baseURL = "worhx.ddns.net";
+const baseURL = "http://worhx.ddns.net:5000";
 
 class UserSvc{
     async loginUser(username, password) {
@@ -12,7 +12,7 @@ class UserSvc{
             }
         )
     
-        return loginUser;
+        return loginUser.data;
     }
 }
 
