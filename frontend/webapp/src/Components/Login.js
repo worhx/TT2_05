@@ -3,13 +3,14 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import CustomButton from "../UI/CustomButton";
 import Form from "react-bootstrap/Form";
+import UserSvc from "../Services/user.js";
 
 const Login = () => {
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
     const history = useHistory();
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
         console.log("Logging in...");
         const loginPayload = { username: username, password: password };
@@ -22,7 +23,17 @@ const Login = () => {
                     history.push("/home");
                 }
             });
+
+        const user = await new UserSvc().loginUser(username, password);
+          
+        if (user) {
+            localStorage.setItem("userId", user.id);
+            history.push("/home");
+        }
+
     };
+
+
 
     return (
         <div style={{ marginTop: "50px" }}>
