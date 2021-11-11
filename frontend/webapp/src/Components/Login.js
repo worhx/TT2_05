@@ -13,12 +13,15 @@ const Login = () => {
         e.preventDefault();
         console.log("Logging in...");
         const loginPayload = { username: username, password: password };
-        axios.post(`worhx.ddns.net:5000/login`, loginPayload).then((res) => {
-            console.log(res);
-            if (res.status === 200) {
-                history.push("/home");
-            }
-        });
+        axios
+            .post(`http://worhx.ddns.net:5000/login`, loginPayload)
+            .then((res) => {
+                console.log(res);
+                if (res.status === 200) {
+                    localStorage.setItem("userId", res.data.id);
+                    history.push("/home");
+                }
+            });
     };
 
     return (
@@ -44,7 +47,12 @@ const Login = () => {
                         }}
                     ></Form.Control>
                 </Form.Group>
-                <CustomButton size="lg" variant="primary" onClick={onSubmit} />
+                <CustomButton
+                    size="lg"
+                    variant="primary"
+                    onClick={onSubmit}
+                    placeholder="Login"
+                />
             </Form>
         </div>
     );
