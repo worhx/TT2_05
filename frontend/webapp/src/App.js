@@ -2,8 +2,6 @@ import { Route, Switch } from "react-router-dom";
 
 import AllProjects from "./pages/AllProjects";
 import AllExpenses from "./pages/AllExpenses";
-import Backdrop from "./components/projects/ui/Backdrop";
-import Modal from "./components/projects/ui/Modal";
 
 function App() {
   return (

@@ -2,13 +2,13 @@ import './styles.css'
 
 const Modal = ({ onCancel, onConfirm }) => {
 
-  function cancelHandler() {
-    onCancel();
-  }
+  // function cancelHandler() {
+  //   onCancel();
+  // }
 
-  function confirmHandler() {
-    onConfirm();
-  }
+  // function confirmHandler() {
+  //   onConfirm();
+  // }
 
   return (
     
