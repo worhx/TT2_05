@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize'
-import { db } from "../util/database_local.js";
+import { db, db_local } from "../util/database.js";
 
-export const Expense = db.define("expense",
+export const Expense = db_local.define("expense",
     {
         id: {
             type: Sequelize.INTEGER,
@@ -13,9 +13,13 @@ export const Expense = db.define("expense",
             type: Sequelize.STRING(255),
             allowNull: false,
         },
-        description: {
+        amount: {
             type: Sequelize.FLOAT,
-            allowNull: false,
+            allowNull: false,  
+        },
+        description: {
+            type: Sequelize.STRING(255),
+            allowNull: true,
         },
         created_at: {
             type: Sequelize.DATE,
@@ -24,7 +28,7 @@ export const Expense = db.define("expense",
         },
         created_by: {
             type: Sequelize.STRING(255),
-            allowNull: false,
+            allowNull: true,
         },
         updated_at: {
             type: Sequelize.DATE,
