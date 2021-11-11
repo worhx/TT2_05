@@ -1,6 +1,7 @@
 import { Route, Switch } from "react-router-dom";
 
 import AllProjects from "./pages/AllProjects";
+import AllExpenses from "./pages/AllExpenses";
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
       </Route>
         <Route path="/project">
           <AllProjects />
+        </Route>
+        <Route path='/expenses'>
+          <AllExpenses />
         </Route>
       </Switch>
     </div>
