@@ -10,6 +10,6 @@ export const getAllCategory = async (req,res)=>{
     }
         throw new Error("Category not found");
       }catch (error) {
-        return res.status(500).json({error: error.message})
+        return res.status(400).json({error: error.message})
       }
 }
