@@ -28,7 +28,7 @@ export const getProjectByUserId = async(req,res)=>{
       }
           throw new Error("Project not found");
         }catch (error) {
-          return res.status(500).json({error: error.message})
+          return res.status(400).json({error: error.message})
         }
 
   }
