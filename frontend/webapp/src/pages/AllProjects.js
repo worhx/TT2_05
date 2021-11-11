@@ -1,6 +1,6 @@
 import Projectlist from "../components/projects/ProjectList";
 
-const AllProjects = ({ id, user_id, name, budget, description }) => {
+const AllProjects = () => {
   const DUMMY_DATA = [
     {
       id: 1,

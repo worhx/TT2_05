@@ -1,7 +1,21 @@
 import { useHistory } from "react-router-dom";
+import { useState } from "react";
+
+import Modal from "./ui/Modal";
+import Backdrop from "./ui/Backdrop";
 
 const ProjectItem = ({ name, budget, description }) => {
+  const [ modalIsOpen, setModalIsOpen ] = useState(false);
+
   const history = useHistory();
+
+  function deleteHandler() {
+    setModalIsOpen(true);
+  }
+
+  function closeModalHandler() {
+    setModalIsOpen(false)
+  }
 
   const routeChange = () => {
     let path = "/expenses";
@@ -17,7 +31,11 @@ const ProjectItem = ({ name, budget, description }) => {
       </div>
       <div>
         <button onClick={routeChange}>View Expenses</button>
-        <button>Delete</button>
+        <button onClick={deleteHandler}>Delete</button>
+      </div>
+      <div>
+        { modalIsOpen && <Modal />}
+        { modalIsOpen && <Backdrop onCancel={closeModalHandler} /> }
       </div>
     </li>
   );
