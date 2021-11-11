@@ -3,6 +3,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import CustomButton from "../UI/CustomButton";
 import Form from "react-bootstrap/Form";
+import UserSvc from "../Services/user.js";
 
 const Login = () => {
     const [username, setUsername] = useState();
@@ -11,6 +12,8 @@ const Login = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
+
+        console.log(new UserSvc().loginUser("user101", "123456"))
         console.log("Logging in...");
         const loginPayload = { username: username, password: password };
         axios
@@ -23,6 +26,8 @@ const Login = () => {
                 }
             });
     };
+
+
 
     return (
         <div>
