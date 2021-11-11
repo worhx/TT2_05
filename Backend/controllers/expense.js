@@ -4,6 +4,10 @@ export const create = async (req, res) => {
 
   const expenseData = req.body
 
+  if (expenseData.amount) {
+    expenseData.amount = parseFloat(expenseData.amount);
+  }
+
   try {
     const _expense = await Expense.create(
       expenseData

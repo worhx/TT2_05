@@ -9,13 +9,21 @@ export const Expense = db_local.define("expense",
             allowNull: false,
             primaryKey: true,
         },
+        project_id: {
+            type: Sequelize.INTEGER,
+            allowNull: false
+        },
+        category_id: {
+            type: Sequelize.INTEGER,
+            allowNull: false
+        },
         name: {
             type: Sequelize.STRING(255),
             allowNull: false,
         },
         amount: {
             type: Sequelize.FLOAT,
-            allowNull: false,  
+            allowNull: true,
         },
         description: {
             type: Sequelize.STRING(255),
