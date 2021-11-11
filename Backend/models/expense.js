@@ -18,35 +18,35 @@ export const Expense = db.define("expense",
             allowNull: false
         },
         name: {
-            type: Sequelize.STRING(255),
+            type: Sequelize.STRING(50),
             allowNull: false,
         },
         amount: {
             type: Sequelize.FLOAT,
-            allowNull: true,
+            allowNull: false,
         },
         description: {
-            type: Sequelize.STRING(255),
-            allowNull: true,
+            type: Sequelize.STRING(50),
+            allowNull: false,
         },
-        created_at: {
+        created_at:{
             type: Sequelize.DATE,
-            allowNull: false,
-            defaultValue: Date.now()
-        },
-        created_by: {
-            type: Sequelize.STRING(255),
             allowNull: true,
+            defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
         },
-        updated_at: {
+        created_by:{
+            type: Sequelize.STRING(50),
+            allowNull:true,
+        },
+        updated_at:{
             type: Sequelize.DATE,
-            allowNull: false,
-            defaultValue: Date.now()
+            allowNull: true,
+            defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
         },
-        updated_by: {
-            type: Sequelize.STRING(255),
-            allowNull: false,
-        }
+        updated_by:{
+            type: Sequelize.STRING(50),
+            allowNull:true,
+        },
 
     },
     {
