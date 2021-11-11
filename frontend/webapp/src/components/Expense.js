@@ -1,15 +1,14 @@
 import React from 'react'
 
-const Expense = () => {
+const Expense = ({expense}) => {
     return (
         <div className='expense'>
             <h3>
-                task title
+                {expense.id}
             </h3>
             <p>
-                id
-                project_id
-                category_id
+                {expense.projectId}
+                {expense.catId}
             </p>
         </div>
     )
