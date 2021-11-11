@@ -14,20 +14,18 @@ h1, h2 {
 
 .btn {
   font: inherit;
-  margin-right: auto;
-  /* display: flex; */
   padding: 0.5rem 1.5rem;
   cursor: pointer;
   border-radius: 4px;
-  background-color: #800040;
+  background-color: #aa0017;
   color: white;
-  border: 1px solid #800040;
+  border: 1px solid #aa0017;
   margin: 0 1rem;
 }
 
 .btn:hover {
-  background-color: #9c1458;
-  border-color: #9c1458;
+  background-color: #ca0a24;
+  border-color: #ca0a24;
 }
 
 .btn--alt {
@@ -36,7 +34,7 @@ h1, h2 {
 }
 
 .btn--alt:hover {
-  background-color: #f8dae9;
+  background-color: #fcf3f3;
 }
 
 .card {

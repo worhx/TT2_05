@@ -1,8 +1,10 @@
 import ProjectItem from "./ProjectItem";
 
+import classes from "./ProjectList.module.css";
+
 const Projectlist = (props) => {
   return (
-    <ul>
+    <ul className={classes.list}>
       {props.projects.map((project) => (
         <ProjectItem
           key={project.id}

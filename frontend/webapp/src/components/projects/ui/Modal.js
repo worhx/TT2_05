@@ -14,8 +14,8 @@ const Modal = ({ onCancel, onConfirm }) => {
     
     <div className='modal'>
       <p>Are you sure?</p>
-      <button onClick={ onConfirm }>Confirm</button>
-      <button onClick={ onCancel }>Cancel</button>
+      <button className='btn' onClick={ onConfirm }>Confirm</button>
+      <button className='btn btn--alt' onClick={ onCancel }>Cancel</button>
     </div>
   )
 }

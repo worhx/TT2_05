@@ -1,7 +1,8 @@
-import Projectlist from "../components/projects/ProjectList";
-
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+import Projectlist from "../components/projects/ProjectList";
+import "./pagestyle.css";
 
 const AllProjects = () => {
   // const [projects, setProjects] = useState([]);
@@ -17,14 +18,14 @@ const AllProjects = () => {
   //   }
   // };
 
-  const [ projectData, setProjectData ] = useState([])
+  const [projectData, setProjectData] = useState([]);
 
   const getProjectData = () => {
     axios.get(`http://worhx.ddns.net:5000/user/1/projects`).then((res) => {
       // const projectData = [res]
-      // console.log(res);
+      console.log(res);
       if (res.status === 200) {
-        setProjectData(res.data)
+        setProjectData(res.data);
       }
     });
   };
@@ -57,7 +58,7 @@ const AllProjects = () => {
     <section>
       <h1>All projects</h1>
       <Projectlist projects={DUMMY_DATA} />
-      <button onClick={getProjectData}>api test</button>
+      <button className='btn' onClick={getProjectData}>api test</button>
       {/* <button onClick={getProjectData}>{projectData.map(project => (
         <li key={project.id}>{projectData.title}</li>
       ))}</button> */}
