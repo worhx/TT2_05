@@ -1,5 +1,5 @@
-import Sequelize, { DATE } from 'sequelize'
-import { db } from "../util/database.js";
+import Sequelize from 'sequelize'
+import { db } from "../util/database_local.js";
 
 export const Expense = db.define("expense",
     {
@@ -20,7 +20,7 @@ export const Expense = db.define("expense",
         created_at: {
             type: Sequelize.DATE,
             allowNull: false,
-            defaultValue: Date.Now()
+            defaultValue: Date.now()
         },
         created_by: {
             type: Sequelize.STRING(255),
@@ -28,8 +28,8 @@ export const Expense = db.define("expense",
         },
         updated_at: {
             type: Sequelize.DATE,
-            defaultValue: Date.Now(),
             allowNull: false,
+            defaultValue: Date.now()
         },
         updated_by: {
             type: Sequelize.STRING(255),
