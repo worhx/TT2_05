@@ -1,6 +1,7 @@
 import Expense from './Expense'
 import { useState } from 'react'
 
+
 const Expenses = () => {
     const [expenses, setExpenses] = useState([{
         id: 1,
@@ -20,9 +21,12 @@ const Expenses = () => {
     
 
     return (
+        
         <div>
+            <button color='green'>Add Expenses</button>
             {expenses.map((expense) => (
                 <Expense key={expense.id} expense={expense}/>
+                
             ))}
         </div>
     )
