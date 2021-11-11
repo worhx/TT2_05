@@ -8,7 +8,7 @@ export const getAllCategory = async (req,res)=>{
         return res.status(200).json(data);
         
     }
-        throw new Error("Expense not found");
+        throw new Error("Category not found");
       }catch (error) {
         return res.status(500).json({error: error.message})
       }
