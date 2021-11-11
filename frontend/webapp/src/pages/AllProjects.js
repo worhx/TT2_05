@@ -1,22 +1,33 @@
 import Projectlist from "../components/projects/ProjectList";
 
-import Axios from "axios";
+import axios from "axios";
 import { useState } from "react";
 
 const AllProjects = () => {
-
   // const [projects, setProjects] = useState([]);
   // const [loading, setLoading] = useState(false);
 
   // const getProjectData = async () => {
   //   try {
-  //   let res = await axios.get("http://worhx.ddns.net:5000/user/:id/projects")
+  //   let res = await axios.get("http://worhx.ddns.net:5000/user/1/projects")
   //     setProjects(res.data.results);
   //     setLoading(true);
   //   } catch (err) {
   //     alert (err.message);
   //   }
   // };
+
+  const [ projectData, setProjectData ] = useState([])
+
+  const getProjectData = () => {
+    axios.get(`http://worhx.ddns.net:5000/user/1/projects`).then((res) => {
+      // const projectData = [res]
+      // console.log(res);
+      if (res.status === 200) {
+        setProjectData(res.data)
+      }
+    });
+  };
 
   const DUMMY_DATA = [
     {
@@ -46,7 +57,10 @@ const AllProjects = () => {
     <section>
       <h1>All projects</h1>
       <Projectlist projects={DUMMY_DATA} />
-      <button>api test</button>
+      <button onClick={getProjectData}>api test</button>
+      {/* <button onClick={getProjectData}>{projectData.map(project => (
+        <li key={project.id}>{projectData.title}</li>
+      ))}</button> */}
     </section>
   );
 };
