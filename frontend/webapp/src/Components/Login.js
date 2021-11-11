@@ -25,7 +25,7 @@ const Login = () => {
             });
 
         const user = await new UserSvc().loginUser(username, password);
-          
+
         if (user) {
             localStorage.setItem("userId", user.id);
             history.push("/home");
@@ -36,35 +36,57 @@ const Login = () => {
 
 
     return (
-        <div style={{ marginTop: "50px" }}>
-            <Form>
-                <Form.Group className="mb-3" controlId="username">
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control
-                        type="text"
-                        placeholder="Username"
-                        onInput={(e) => {
-                            setUsername(e.target.value);
-                        }}
-                    ></Form.Control>
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="password">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                        type="password"
-                        placeholder="Password"
-                        onInput={(e) => {
-                            setPassword(e.target.value);
-                        }}
-                    ></Form.Control>
-                </Form.Group>
-                <CustomButton
-                    size="lg"
-                    variant="primary"
-                    onClick={onSubmit}
-                    placeholder="Login"
-                />
-            </Form>
+        <div>
+
+            <div style={{
+                margin: "auto",
+                padding: "0px 500px",
+                height: "80vh",
+                marginTop: "200px"
+            }}>
+                <Form>
+                    <Form.Group className="mb-3" controlId="username">
+                        <Form.Label style={{
+                            width: "100%",
+                            textAlign: "left"
+                        }}> Username</Form.Label>
+                        <Form.Control
+                            type="text"
+                            placeholder="Username"
+                            onInput={(e) => {
+                                setUsername(e.target.value);
+                            }}
+                        ></Form.Control>
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="password">
+
+                        <Form.Label style={{
+                            width: "100%",
+                            textAlign: "left"
+                        }}>Password</Form.Label>
+                        <Form.Control
+                            type="password"
+                            placeholder="Password"
+                            onInput={(e) => {
+                                setPassword(e.target.value);
+                            }}
+                        ></Form.Control>
+                    </Form.Group>
+                    <div style={{
+                        width: "100%",
+                        textAlign: "right"
+                    }}>
+                        <CustomButton
+                            size="lg"
+                            variant="primary"
+                            onClick={onSubmit}
+                            placeholder="Login"
+                        />
+                    </div>
+                </Form>
+            </div >
+
         </div>
     );
 };
