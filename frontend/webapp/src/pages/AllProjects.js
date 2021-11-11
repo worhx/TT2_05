@@ -1,4 +1,4 @@
-
+import Projectlist from "../components/projects/ProjectList";
 
 const AllProjects = ({ id, user_id, name, budget, description }) => {
   const DUMMY_DATA = [
@@ -28,11 +28,7 @@ const AllProjects = ({ id, user_id, name, budget, description }) => {
   return (
     <section>
       <h1>All projects</h1>
-      <ul>
-        {DUMMY_DATA.map((project) => {
-          return <li key={project.id}>{project.name}</li>;
-        })}
-      </ul>
+      <Projectlist projects={DUMMY_DATA} />
     </section>
   );
 };
