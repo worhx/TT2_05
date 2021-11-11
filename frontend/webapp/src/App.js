@@ -14,6 +14,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { Container } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Expenses from "./Components/Expenses";
+import Expense from "./Components/Expense";
 
 function App() {
     return (
@@ -49,13 +50,14 @@ function App() {
 
                 <Switch>
                     {/* <Redirect to="/login" /> */}
-                    <Route exact path="/login">
+                    <Route path="/login">
                         <Login />
                     </Route>
-                     {/* <Redirect to="/expenses" /> */}
+                    {/* <Redirect to="/expenses" /> */}
                     <Route exact path="/expenses">
                         <Expenses />
                     </Route>
+                  
                 </Switch>
             </div>
         </Router>

@@ -4,6 +4,7 @@ import ExpensesSvc from "../Services/expenses.js"
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 
+
 const Expenses = () => {
     const [expenses, setExpenses] = useState([])
 
