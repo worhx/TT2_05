@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 
-const baseURL = "http://worhx.ddns.net";
+const baseURL = "http://worhx.ddns.net:5000";
 
 class ExpensesSvc extends React.PureComponent {
     async get(projectId) {

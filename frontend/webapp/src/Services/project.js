@@ -1,7 +1,7 @@
 
 import axios from "axios";
 
-const baseURL = "http://worhx.ddns.net";
+const baseURL = "http://worhx.ddns.net:5000";
 
 class ProjectSvc {
 
