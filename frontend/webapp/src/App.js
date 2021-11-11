@@ -49,15 +49,23 @@ function App() {
 
 
                 <Switch>
+
                     {/* <Redirect to="/login" /> */}
-                    <Route path="/">
+
+                    <Route exact path="/">
                         <Login />
                     </Route>
+
                     {/* <Redirect to="/expenses" /> */}
+
                     <Route exact path="/expenses">
                         <Expenses />
                     </Route>
-                  
+
+                    <Route exact path="/login">
+                        <Login />
+                    </Route>
+
                 </Switch>
             </div>
         </Router>
