@@ -10,8 +10,8 @@ export const db = new Sequelize({
 
 export const db_local = new Sequelize({
     database:'project_expenses',
-    username:'localhost',
+    username:'root',
     password:'password',
     dialect:'mysql',
-    host:"localhost",
+    host:"127.0.0.1:3306",
 });
