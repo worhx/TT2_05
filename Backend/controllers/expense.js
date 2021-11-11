@@ -4,15 +4,17 @@ export const create = async (req, res) => {
 
   try {
 
+    const projectId = req.params.projectId
     const expenseData = req.body
 
     if (expenseData.amount) {
       expenseData.amount = parseFloat(expenseData.amount);
     }
 
-    const _expense = await Expense.create(
-      expenseData
-    )
+    const _expense = await Expense.create({
+      ...expenseData,
+      "project_id": projectId
+    })
     if (!_expense) {
       throw new Error("Expenses not created")
     }
@@ -27,7 +29,15 @@ export const create = async (req, res) => {
 export const get = async (req, res) => {
 
   try {
-    const _expense = await Expense.findAll()
+    const projectId = req.params.projectId
+
+    const _expense = await Expense.findAll(
+      {
+        where: {
+          "project_id": projectId
+        }
+      }
+    )
     res.json(_expense)
   }
   catch (err) {
@@ -39,6 +49,7 @@ export const get = async (req, res) => {
 export const update = async (req, res) => {
 
   try {
+    const expenseId = req.params.expensesId
     const expenseData = req.body
 
     if (expenseData.amount) {
@@ -46,8 +57,15 @@ export const update = async (req, res) => {
     }
 
     const _expense = await Expense.update(
-      expenseData
-    )
+      {
+        ...expenseData
+      },
+      {
+        where: {
+          "id": expenseId
+        },
+      });
+
     res.json(_expense)
   }
   catch (err) {
@@ -59,12 +77,12 @@ export const update = async (req, res) => {
 export const deleteExpenses = async (req, res) => {
 
   try {
-    const _expense = await deleteExpenses.destroy({
+    const _expense = await Expense.destroy({
       where: {
         "id": req.query.id
       }
     })
-    res.json(_expense)
+    res.send(true)
   }
   catch (err) {
     console.log(err);
