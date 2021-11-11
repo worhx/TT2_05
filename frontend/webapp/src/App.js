@@ -50,7 +50,7 @@ function App() {
 
                 <Switch>
                     {/* <Redirect to="/login" /> */}
-                    <Route path="/login">
+                    <Route path="/">
                         <Login />
                     </Route>
                     {/* <Redirect to="/expenses" /> */}
