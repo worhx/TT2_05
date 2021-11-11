@@ -13,5 +13,5 @@ export const db_local = new Sequelize({
     username:'root',
     password:'password',
     dialect:'mysql',
-    host:"127.0.0.1:3306",
+    host:"127.0.0.1",
 });
