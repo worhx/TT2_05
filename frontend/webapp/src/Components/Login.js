@@ -10,10 +10,8 @@ const Login = () => {
     const [password, setPassword] = useState();
     const history = useHistory();
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
-
-        console.log(new UserSvc().loginUser("user101", "123456"))
         console.log("Logging in...");
         const loginPayload = { username: username, password: password };
         axios
@@ -25,6 +23,14 @@ const Login = () => {
                     history.push("/home");
                 }
             });
+
+        const user = await new UserSvc().loginUser(username, password);
+          
+        if (user) {
+            localStorage.setItem("userId", user.id);
+            history.push("/home");
+        }
+
     };
 
 
