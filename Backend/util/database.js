@@ -7,3 +7,11 @@ export const db = new Sequelize({
     host:"worhx.ddns.net",
 
 });
+
+export const db_local = new Sequelize({
+    database:'project_expenses',
+    username:'root',
+    password:'password',
+    dialect:'mysql',
+    host:"127.0.0.1",
+});
