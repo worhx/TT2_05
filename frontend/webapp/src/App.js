@@ -13,6 +13,7 @@ import Logo from "./dbs_logo.svg";
 import Navbar from "react-bootstrap/Navbar";
 import { Container } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
+import Expenses from "./Components/Expenses";
 import Expense from "./Components/Expense";
 
 function App() {
@@ -45,14 +46,18 @@ function App() {
                         />
                     </Navbar>
                 </div>
+
+
                 <Switch>
                     {/* <Redirect to="/login" /> */}
                     <Route path="/login">
                         <Login />
                     </Route>
-                    <Route path="/projects/expenses/">
-                        <Expense />
+                    {/* <Redirect to="/expenses" /> */}
+                    <Route exact path="/expenses">
+                        <Expenses />
                     </Route>
+                  
                 </Switch>
             </div>
         </Router>

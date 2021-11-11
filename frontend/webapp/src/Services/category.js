@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const baseURL = "worhx.ddns.net";
+const baseURL = "http://worhx.ddns.net:5000";
 
 class CategorySvc {
 
